@@ -1,39 +1,42 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import CurrentUser from "../contexts/CurrentUser";
+
+import SetCurrentUser from "../contexts/SetCurrentUser";
+
 import { HOSTNAME } from "../config/env";
 
 export default function Login() {
     
     const navigate = useNavigate();
-    const currentUser = useContext(CurrentUser);
+
+    // const currentUser = useContext(CurrentUser);
+    const setCurrentUser = useContext(SetCurrentUser);
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(false);
 
-    if (currentUser) {
-        navigate(-1);
-    }
 
-    function loginHandler(e) {
-        console.log(email);
-        console.log(password);
-
-        (async function() {
-            try {
-                const response = await fetch(`${HOSTNAME}/api/login`, {
-                    method: "POST",
-                });
-                try {
-                    jsonData = await response.json();
-                    useNavigate("/");
-                } catch(err) {
-                    setError(true);
-                }
-            } catch(err) {
-                setError(true);
+    async function loginHandler(e) {
+        e.preventDefault();
+        const api = `${HOSTNAME}/apis/login`;
+        console.log(api);
+        try {
+            const response = await fetch(api, {
+                method: "POST",
+                body: {
+                    email: email,
+                    password: password,
+                },
+            });
+            const jsonData = await response.json();
+            if ("error" in jsonData) {
+                throw new Error("json Error");
             }
-        })();
+            setCurrentUser(email);
+        } catch(err) {
+            setError(true);
+        }
     }
 
     return (

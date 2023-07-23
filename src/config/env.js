@@ -1,3 +1,3 @@
 
 
-export const HOSTNAME = "127.0.0.1:4000";
+export const HOSTNAME = "https://xseedbackend.onrender.com";

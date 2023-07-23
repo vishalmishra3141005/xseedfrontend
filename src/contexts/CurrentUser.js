@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
 
-let CurrentUser = createContext(null);
+const CurrentUser = createContext(null);
 
 export default CurrentUser;
