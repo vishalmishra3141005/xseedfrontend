@@ -1,0 +1,25 @@
+
+
+.video-container {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(197, 197, 197);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.title-container {
+    padding: 10px;
+    height: fit-content;
+    font-size: 20px;
+    font-family: sans-serif;
+    max-width: 700px;
+    border-radius: 10px;
+    background-color: rgb(234, 228, 228);;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,28 @@
+
+
+.toolbar-container {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #0B2149;
+    font-size: 20px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    position: fixed;
+    width: 100%;
+}
+
+.toolbar-container:hover {
+    color: white;
+    background-color: #487ad5;
+}
+
+.toolbar-container p {
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.toolbar-container p:hover {
+    background-color: #a5bce7;
+}
